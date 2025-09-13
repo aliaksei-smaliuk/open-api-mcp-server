@@ -1,0 +1,21 @@
+{
+  "name": "open-api-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server that dynamically exposes multiple OpenAPI/Swagger specs as MCP tools.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test:import": "node -e \"import('./index.js').then(m=>m.createServer({urls:['https://petstore3.swagger.io/api/v3/openapi.json'], connect:false})).then(()=>{console.log('Import OK');}).catch(e=>{console.error(e); process.exit(1);})\""
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.0",
+    "undici": "^6.19.8",
+    "zod": "^3.23.8"
+  }
+}
+
